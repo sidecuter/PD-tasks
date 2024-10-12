@@ -15,5 +15,8 @@
     "url": "."
   },
   "author": "Maksim Litiagin",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "dependencies": {
+    "benchmark": "^2.1.4"
+  }
 }
