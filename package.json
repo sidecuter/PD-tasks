@@ -8,7 +8,7 @@
     "taskB": "node b.js",
     "taskC": "node c.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bench": ""
+    "bench": "node bench.js"
   },
   "repository": {
     "type": "git",
