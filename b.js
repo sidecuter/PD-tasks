@@ -10,7 +10,7 @@ export const auditories = (contents, count = null) => {
         parseGroup(contents[group]).forEach(aud => auds.add(aud));
         //auds.add(...parseGroup(contents[group]));
     });
-    return Array(...auds);
+    return Array(...auds).filter(room => !room.match(filter_reg));
 }
 
 const parseGroup = (group) => {
@@ -35,8 +35,5 @@ const parseDay = (day) => {
             });
         } catch (error) {/*yolo*/}
     });
-    let result = Array(...auds);
-    if (result.length > 0) {
-        return result.filter(room => !room.match(filter_reg));
-    } else return result;
+    return Array(...auds);
 }
