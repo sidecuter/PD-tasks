@@ -1,0 +1,17 @@
+{
+  "name": "task1",
+  "version": "0.0.1",
+  "description": "Task1 for pd",
+  "scripts": {
+    "taskA": "node a.js",
+    "taskB": "node b.js",
+    "taskC": "node c.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "."
+  },
+  "author": "Maksim Litiagin",
+  "license": "UNLICENSED"
+}
