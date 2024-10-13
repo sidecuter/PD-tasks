@@ -1,42 +1,45 @@
-import { parseLesson } from "./parseLesson";
-import { findAuditory } from "./findAuditory";
+import { parseLesson } from "./parseLesson.js";
+import { findAuditory } from "./findAuditory.js";
 
 export const parseDay = (dayNum, day, group, state, auditories) => {
-    Object.entries(day).forEach((lessonNum, lesson) => {
+    Object.entries(day).forEach(([lessonNum, lesson]) => {
         if (lesson.length) {
-            let [lesson, auds] = parseLesson(lesson, group);
-            auds.forEach(aud => {
-                try {
+            try {
+                let [lessonCont, auds] = parseLesson(lesson, group);
+                auds.forEach(aud => {
+                    aud = aud.toLowerCase();
                     let auditory = findAuditory(aud, auditories, state);
-                    switch (dayNum) {
-                        case "1":
-                            auditory.grid.monday[lessonNum] = lesson;
-                            auditory.grid.monday.lessons.push(lessonNum);
-                            break;
-                        case "2":
-                            auditory.grid.tuesday[lessonNum] = lesson;
-                            auditory.grid.tuesday.lessons.push(lessonNum);
-                            break;
-                        case "3":
-                            auditory.grid.wednesday[lessonNum] = lesson;
-                            auditory.grid.wednesday.lessons.push(lessonNum);
-                            break;
-                        case "4":
-                            auditory.grid.thursday[lessonNum] = lesson;
-                            auditory.grid.thursday.lessons.push(lessonNum);
-                            break;
-                        case "5":
-                            auditory.grid.friday[lessonNum] = lesson;
-                            auditory.grid.friday.lessons.push(lessonNum);
-                            break;
-                        case "6":
-                            auditory.grid.saturday[lessonNum] = lesson;
-                            auditory.grid.saturday.lessons.push(lessonNum);
-                            break;
-                    }
-                } catch (_) {}
-            })
+                    try {
+                        switch (dayNum) {
+                            case "1":
+                                auditory.rasp.monday[lessonNum] = lessonCont;
+                                auditory.rasp.monday.lessons.push(lessonNum);
+                                break;
+                            case "2":
+                                auditory.rasp.tuesday[lessonNum] = lessonCont;
+                                auditory.rasp.tuesday.lessons.push(lessonNum);
+                                break;
+                            case "3":
+                                auditory.rasp.wednesday[lessonNum] = lessonCont;
+                                auditory.rasp.wednesday.lessons.push(lessonNum);
+                                break;
+                            case "4":
+                                auditory.rasp.thursday[lessonNum] = lessonCont;
+                                auditory.rasp.thursday.lessons.push(lessonNum);
+                                break;
+                            case "5":
+                                auditory.rasp.friday[lessonNum] = lessonCont;
+                                auditory.rasp.friday.lessons.push(lessonNum);
+                                break;
+                            case "6":
+                                auditory.rasp.saturday[lessonNum] = lessonCont;
+                                auditory.rasp.saturday.lessons.push(lessonNum);
+                                break;
+                        }
+                        state.set(aud, auditory);
+                    } catch (_) {}
+                })
+            } catch (_) {}
         }
     });
-    return result;
 }

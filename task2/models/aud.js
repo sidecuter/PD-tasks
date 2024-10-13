@@ -1,4 +1,4 @@
-import { Grid } from "./grid";
+import { Grid } from "./grid.js";
 
 /**
  * @field {string} id - номер аудитории

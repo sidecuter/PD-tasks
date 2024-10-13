@@ -1,4 +1,5 @@
-export {Day} from "./day"
+import { StudyDay } from "./day.js";
+
 /**
  * @field {Day} monday - первая пара
  * @field {Day} tuesday - вторая пара
@@ -8,10 +9,10 @@ export {Day} from "./day"
  * @field {Day} saturday - шестая пара
  */
 export class Grid {
-    monday = new Day;
-    tuesday = new Day;
-    wednesday = new Day;
-    thursday = new Day;
-    friday = new Day;
-    saturday = new Day;
+    monday = new StudyDay;
+    tuesday = new StudyDay;
+    wednesday = new StudyDay;
+    thursday = new StudyDay;
+    friday = new StudyDay;
+    saturday = new StudyDay;
 }
