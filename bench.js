@@ -5,7 +5,7 @@ import {parse} from "./task2/main.js";
 
 
 const data = JSON.parse(json);
-const auds = new Set(auditories(data));
+const auds = auditories(data);
 
 const suite = new Benchmark.Suite;
 
