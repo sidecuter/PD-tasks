@@ -7,7 +7,7 @@
     "task1A": "node task1/a.js",
     "task1B": "node task1/b.js",
     "task1C": "node task1/c.js",
-    "bench1": "node task1/bench.js"
+    "bench": "node bench.js"
   },
   "repository": {
     "type": "git",
