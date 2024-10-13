@@ -17,7 +17,7 @@ export const parseLesson = (lesson, group) => {
         );
         return result
     } catch (_) {
-        return null
+        return [null, []]
     }
 }
 
