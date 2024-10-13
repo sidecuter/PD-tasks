@@ -14,7 +14,6 @@ suite
     .add("auditories10#method", () => auditories(data,10))
     .add("auditories100#method", () => auditories(data,100))
     .add("auditoriesAll#method", () => auditories(data))
-    .add("auditoriesAll#method", () => auditories(data))
     .add("parse#method", () => parse(data, auds))
     .on('cycle', (event) => console.log(String(event.target)))
     .run({'async':false});
