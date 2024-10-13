@@ -1,5 +1,5 @@
 /**
- * Used to store lesson info
+ * Хранит информацию о занятии
  * @field {string} groupName - название учебной группы/направления пд
  * @field {string} groupType - тип группы (Study/pd)
  * @field {string} discipline - название дисциплины

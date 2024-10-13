@@ -1,6 +1,7 @@
 import { StudyDay } from "./day.js";
 
 /**
+ * @class Grid - Хранит расписание занятий по дням
  * @field {Day} monday - первая пара
  * @field {Day} tuesday - вторая пара
  * @field {Day} wednesday - третья пара

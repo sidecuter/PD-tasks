@@ -1,4 +1,5 @@
 /**
+ * @class StudyDay - хранит расписание занятий за учебный день
  * @field {Lesson} 1 - первая пара
  * @field {Lesson} 2 - вторая пара
  * @field {Lesson} 3 - третья пара
