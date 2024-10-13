@@ -1,13 +1,12 @@
 {
-  "name": "task1",
+  "name": "tasks",
   "version": "0.0.1",
   "description": "Task1 for pd",
   "type": "module",
   "scripts": {
-    "taskA": "node a.js",
-    "taskB": "node b.js",
-    "taskC": "node c.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "task1A": "node task1/a.js",
+    "task1B": "node task1/b.js",
+    "task1C": "node task1/c.js",
     "bench": "node bench.js"
   },
   "repository": {
