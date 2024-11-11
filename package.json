@@ -18,6 +18,7 @@
   "author": "Maksim Litiagin",
   "license": "UNLICENSED",
   "dependencies": {
-    "benchmark": "^2.1.4"
+    "benchmark": "^2.1.4",
+    "transliteration": "^2.3.5"
   }
 }
