@@ -1,6 +1,6 @@
 import Benchmark from "benchmark";
-import {json} from "./task1/a.js";
-import {auditories} from "./task1/b.js";
+import {json} from "./auditories/a.js";
+import {auditories} from "./auditories/b.js";
 import {parse} from "./parse/main.js";
 
 

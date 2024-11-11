@@ -4,9 +4,9 @@
   "description": "Task1 for pd",
   "type": "module",
   "scripts": {
-    "task1A": "node task1/a.js",
-    "task1B": "node task1/b.js",
-    "task1C": "node task1/c.js",
+    "task1A": "node auditories/a.js",
+    "task1B": "node auditories/b.js",
+    "task1C": "node auditories/c.js",
     "bench": "node bench.js",
     "export": "mkdir -p dist && node export.js"
   },
