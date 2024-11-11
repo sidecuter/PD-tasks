@@ -1,4 +1,4 @@
-const filter_reg = /(пд|зал|cпорт|онлайн|-лайн|федеральная|имаш|hami|нами|техноград|биокомбинат|сколково|биотехнологии|hами)/i;
+const filter_reg = /(пд|зал|cпорт|онлайн|лайн|федеральная|имаш|hami|нами|техноград|биокомбинат|сколково|биотехнологии|hами)/i;
 
 export const auditories = (contents, count = null) => {
     let keys = Object.keys(contents);

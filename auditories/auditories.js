@@ -1,4 +1,4 @@
-import {json} from "./data_fetching.js"
-import {auditories} from "./methods.js"
+import {json} from "./data_fetching.js";
+import {auditories} from "./methods.js";
 
-module.exports = json, auditories
+export default {json, auditories};
