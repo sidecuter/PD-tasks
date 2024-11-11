@@ -1,7 +1,7 @@
 import Benchmark from "benchmark";
-import {json} from "./task1/a.js";
-import {auditories} from "./task1/b.js";
-import {parse} from "./task2/main.js";
+import {json} from "./auditories/data_fetching.js";
+import {auditories} from "./auditories/methods.js";
+import {parse} from "./parse/main.js";
 
 
 const data = JSON.parse(json);

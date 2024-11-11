@@ -1,12 +1,12 @@
 {
-  "name": "tasks",
+  "name": "schedule_parser",
   "version": "0.0.1",
   "description": "Task1 for pd",
   "type": "module",
   "scripts": {
-    "task1A": "node task1/a.js",
-    "task1B": "node task1/b.js",
-    "task1C": "node task1/c.js",
+    "task1A": "node auditories/data_fetching.js",
+    "task1B": "node auditories/methods.js",
+    "task1C": "node auditories/spaces.js",
     "bench": "node bench.js",
     "export": "mkdir -p dist && node export.js"
   },

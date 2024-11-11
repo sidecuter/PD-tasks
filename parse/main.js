@@ -13,8 +13,8 @@ export const parse = (contents, auditories) => {
     return Object.fromEntries(state.entries());
 }
 // Пример вызова функции
-// import { json } from "../task1/a.js";
-// import { auditories } from "../task1/b.js";
+// import { json } from "../auditories/data_fetching.js";
+// import { auditories } from "../auditories/methods.js";
 // const content = JSON.parse(json)
 // const auds = auditories(content)
 // parse(content, auds)
