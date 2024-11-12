@@ -7,6 +7,7 @@
     "task1A": "node auditories/data_fetching.js",
     "task1B": "node auditories/methods.js",
     "task1C": "node auditories/spaces.js",
+    "unifier": "node name_unifier/main.js",
     "bench": "node bench.js",
     "export": "mkdir -p dist && node export.js"
   },
@@ -17,6 +18,7 @@
   "author": "Maksim Litiagin",
   "license": "UNLICENSED",
   "dependencies": {
-    "benchmark": "^2.1.4"
+    "benchmark": "^2.1.4",
+    "transliteration": "^2.3.5"
   }
 }

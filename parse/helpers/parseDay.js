@@ -1,5 +1,6 @@
 import { parseLesson } from "./parseLesson.js";
 import { Auditory } from "../models/aud.js";
+import { unify } from "../../name_unifier/main.js"
 
 // Нужно для более лаконичного доступа к полям моделей
 const dayNumToName = {
@@ -17,17 +18,19 @@ const dayNumToName = {
  * @param {Object} day 
  * @param {String} group 
  * @param {Map{String, Auditory}} state 
- * @param {Array{String}} auditories 
+ * @param {Object} auditories 
  */
 export const parseDay = (dayNum, day, group, state, auditories) => {
     // Перебираем все пары за день (они записаны в формате 'номер': {Объекты вариантов})
     Object.entries(day).forEach(([lessonNum, lesson]) => {
         // Получаем спаршенную модель пары и аудитории для нее
-        let [lessonCont, auds] = parseLesson(lesson, group);
+        let [lessonCont, auds, location] = parseLesson(lesson, group);
+        if (location = "" || auds.length == 0) return;
         // Перебираем все аудитории
         auds
             .map(v => v.toLowerCase()) // Преобразуем названия аудиторий к нижнему регистру
-            .filter(v => auditories.has(v)) // Отфильтровываем те, которых нет в массиве аудиторий
+            .filter(v => v in auditories) // Отфильтровываем те, которых нет в массиве аудиторий
+            .map(v => auditories[v])
             .forEach(aud => {
                 // Если в состоянии еще нет такой аудитории, то создаем новый объект и пишем его в состояние
                 if (!state.has(aud)) {

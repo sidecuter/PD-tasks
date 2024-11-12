@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/task2/main.js"
+            "program": "${workspaceFolder}/name_unifier/test.js"
         }
     ]
 }
