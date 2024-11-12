@@ -1,6 +1,8 @@
 import { Lesson } from "../models/lesson.js"
 import { is_valid } from "../../name_unifier/main.js";
 
+const today = new Date();
+
 /**
  * @function parseLesson - Обработка уроков
  * @param {Object} lesson - Объект урока из расписания, хранит 1 и более вариантов по датам
@@ -8,25 +10,17 @@ import { is_valid } from "../../name_unifier/main.js";
  * @returns [Lesson, Array{String}]|[null, []]
  */
 export const parseLesson = (lesson, group) => {
-    const today = new Date();
-    try {
-        let result = parseVariant( // Преобразуем вариант (если варианта не нашлось, выбросится исключение)
-            Object.values(lesson)
-                .filter(variant => is_valid(variant.location))
-                .filter(variant =>
-                    // Фильтруем все варианты пары на то, что сейчас они доступны
-                    new Date(variant.df) <= today && new Date(variant.dt) >= today
-                )[0], // Получаем первый удачный вариант (либо никакой)
-            // После фильтра обычно не остается вообще вариантов,
-            // либо иногда всплывает единственный.
-            // Два и более после фильтрации не возникает
-            group
-        );
-        return result
-    } catch (_) {
-        // В случае, если возникло исключение (фильтрация не вернула ничего) возвращается пустое значение
-        return [null, [], ""]
-    }
+    // Фильтруем все варианты пары на то, что сейчас они доступны
+    let valid_variant = Object.values(lesson).filter(v => {
+        let df = new Date(v.df);
+        let dt = new Date(v.dt);
+        return df <= today && dt >= today && is_valid(v.location);
+    })[0];  // Получаем первый удачный вариант (либо никакой)
+    // После фильтра обычно не остается вообще вариантов,
+    // либо иногда всплывает единственный.
+    // Два и более после фильтрации не возникает
+    if (valid_variant === undefined) return [null, [], ""];
+    return parseVariant(valid_variant, group);
 }
 
 /**
