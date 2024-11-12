@@ -4,7 +4,7 @@ import { setSchedule, getSchedule, setAuditories } from "./state.js";
 /**
  * @function parse - Парсит содержимое расписания и предоставляет занятия по аудиториям
  * @param {Object} contents - содержимое поля contents расписания
- * @param {Array{String}} auditories - список аудиторий
+ * @param {Object} auditories - список сопоставлений аудиторий и унифицированных имен
  * @returns Object
  */
 export const parse = (contents, auditories) => {
