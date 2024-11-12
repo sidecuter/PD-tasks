@@ -8,7 +8,6 @@ import { parseGroups } from "./helpers/parseGroups.js";
  */
 export const parse = (contents, auditories) => {
     let state = new Map;
-    auditories = new Set(auditories);
     parseGroups(contents, state, auditories);
     return Object.fromEntries(state.entries());
 }
