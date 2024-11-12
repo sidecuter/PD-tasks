@@ -19,7 +19,7 @@ export const parseLesson = (lesson, group) => {
     // После фильтра обычно не остается вообще вариантов,
     // либо иногда всплывает единственный.
     // Два и более после фильтрации не возникает
-    if (valid_variant === undefined) return [null, [], ""];
+    if (valid_variant === undefined) return [null, []];
     return parseVariant(valid_variant, group);
 }
 
@@ -32,11 +32,11 @@ export const parseLesson = (lesson, group) => {
 const parseVariant = (variant, group) => {
     let result = new Lesson;
     result.discipline = variant.sbj;
-    result.groupName = group;
+    result.groupNames = [group];
     result.groupType = "study";
     // Преподаватели указаны через ,
     result.teachers = variant.teacher.split(', ');
     // Получаем все номера аудиторий
     let rooms = [...Object.values(variant.shortRooms)];
-    return [result, rooms, variant.location];
+    return [result, rooms];
 }

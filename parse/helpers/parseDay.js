@@ -25,8 +25,8 @@ export const parseDay = (dayNum, day, group) => {
         .filter(([_, lesson]) => Object.values(lesson).some(v => is_valid(v.location)))
         .forEach(([lessonNum, lesson]) => {
             // Получаем спаршенную модель пары и аудитории для нее
-            let [lessonCont, auds, location] = parseLesson(lesson, group);
-            if (location = "" || auds.length == 0) return;
+            let [lessonCont, auds] = parseLesson(lesson, group);
+            if (auds.length == 0) return;
             // Перебираем все аудитории
             auds
                 .filter(v => v.toLowerCase() in getAuditories()) // Отфильтровываем те, которых нет в объекте аудиторий
@@ -38,9 +38,13 @@ export const parseDay = (dayNum, day, group) => {
                         state[aud].id = aud;
                     }
                     // Записываем для дня dayNum информацию о паре lessonNum
-                    state[aud].rasp[dayNumToName[dayNum]][lessonNum] = lessonCont;
-                    // Дополняем массив lessons информацией о номере пары
-                    state[aud].rasp[dayNumToName[dayNum]].lessons.push(lessonNum);
+                    if (state[aud].rasp[dayNumToName[dayNum]][lessonNum] === undefined) {
+                        state[aud].rasp[dayNumToName[dayNum]][lessonNum] = lessonCont;
+                        // Дополняем массив lessons информацией о номере пары
+                        state[aud].rasp[dayNumToName[dayNum]].lessons.push(lessonNum);
+                    } else {
+                        state[aud].rasp[dayNumToName[dayNum]][lessonNum].merge(lessonCont);
+                    }
                 }));
     });
 }
