@@ -3,9 +3,10 @@ import use_state from "../state/main.js";
 
 const filter_reg = /(пд|зал|cпорт|онлайн|лайн|федеральная|имаш|hami|нами|техноград|биокомбинат|сколково|биотехнологии|hами)/i;
 
-const [getAuds, _, updateAuds] = use_state({});
+const [getAuds, setAuds, updateAuds] = use_state({});
 
 export const auditories = (contents, count = null) => {
+    setAuds({});
     let keys = Object.keys(contents);
     if (count !== null && typeof count === 'number') {
         keys = keys.slice(0, count);
