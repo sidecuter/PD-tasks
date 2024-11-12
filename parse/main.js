@@ -1,4 +1,5 @@
 import { parseGroups } from "./helpers/parseGroups.js";
+import { setSchedule, getSchedule, setAuditories } from "./state.js";
 
 /**
  * @function parse - Парсит содержимое расписания и предоставляет занятия по аудиториям
@@ -7,9 +8,10 @@ import { parseGroups } from "./helpers/parseGroups.js";
  * @returns Object
  */
 export const parse = (contents, auditories) => {
-    let state = new Map;
-    parseGroups(contents, state, auditories);
-    return Object.fromEntries(state.entries());
+    setSchedule({});
+    setAuditories(auditories);
+    parseGroups(contents);
+    return {...getSchedule()};
 }
 // Пример вызова функции
 // import { json } from "../auditories/data_fetching.js";
