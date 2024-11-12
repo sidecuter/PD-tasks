@@ -8,4 +8,5 @@ const auds = auditories(data);
 
 let result = parse(data, auds);
 
-writeFileSync("dist/auditories.json", JSON.stringify(result));
+writeFileSync("dist/schedule.json", JSON.stringify(result));
+writeFileSync("dist/auditories.json", JSON.stringify(auds));
