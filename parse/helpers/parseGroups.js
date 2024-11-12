@@ -10,8 +10,7 @@ export const parseGroups = (contents, state, auditories) => {
     // Пробегаемся по всем группам с расписания
     Object.entries(contents).forEach(([group, content]) => {
         // Нам интересна только сетка расписания, потому извлекаем ее
-        let grid = content.grid;
-        // Вызываем парсер сетки
-        parseGrid(grid, group, state, auditories);
+        // и вызываем парсер сетки
+        parseGrid(content.grid, group, state, auditories);
     });
 }
